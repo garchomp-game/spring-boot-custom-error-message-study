@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"
+      rel="stylesheet"/>
+  </head>
+  <body class="bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h4
+            class="border-bottom my-3"
+            th:text="#{invoice}"
+          ></h4>
+          <p
+            class="text-danger"
+            th:text="#`confirmationMessage"
+          ></p>
+
+          <div th:object="${invoice}">
+            <div class="mb-3">
+              <label for="name" th:text="#{name}"></label>
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{name}"
+                disabled
+              >
+            </div>
+            <div class="mb-3">
+              <label for="addres" th:text="#{addres}"></label>
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{addres}"
+                disabled
+              >
+            </div>
+            <div class="mb-3">
+              <label for="phopneNumber" th:text="#{phopneNumber}"></label>
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{phopneNumber}"
+                disabled
+              >
+            </div>
+            <div class="mb-3">
+              <label for="price" th:text="#{price}"></label>
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{price}"
+                disabled
+              >
+            </div>
+            <div class="mb-3">
+              <label for="paymentDeadline" th:text="#{paymentDeadline}"></label>
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{paymentDeadline}"
+                disabled
+              >
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <script th:href="@{/webjars/jquery/3.5.0/js/jquery.min.js}"></script>
+    <script
+    th:href="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}">
+  </script>
+  </body>
+</html>
