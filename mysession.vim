@@ -13,25 +13,28 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 src/main/java/com/example/myapp/DemoApplication.java
-badd +26 src/main/java/com/example/myapp/model/Invoice.java
-badd +121 ~/workspace/springbootstudy/memo.md
+badd +1 ~/.config/nvim/lua/core/default_config.lua
+badd +1 ~/.config/nvim/lua
+badd +35 ~/.config/nvim/lua/core/lazy_load.lua
 badd +1 src/main/java/com/example/myapp/controller/HomeController.java
-badd +7 src/main/resources/templates/index.html
 badd +1 ~/workspace/myapp
+badd +1 src/main/java/com/example/myapp/model/Invoice.java
+badd +1 src/main/java/com/example/myapp/DemoApplication.java
+badd +121 ~/workspace/springbootstudy/memo.md
+badd +101 src/main/resources/templates/index.html
 badd +23 build.gradle
 badd +1 src/main/resources/application.properties
-badd +8 src/main/resources/i18n/messages_ja.properties
-badd +8 src/main/resources/i18n/messages.properties
-badd +10 src/main/resources/i18n/ValidationMessages_ja.properties
-badd +10 src/main/resources/i18n/ValidationMessages.properties
-badd +7 src/main/resources/templates/confirm.html
+badd +1 src/main/resources/i18n/messages_ja.properties
+badd +1 src/main/resources/i18n/messages.properties
+badd +1 src/main/resources/i18n/ValidationMessages_ja.properties
+badd +1 src/main/resources/i18n/ValidationMessages.properties
+badd +1 src/main/resources/templates/confirm.html
 argglobal
 %argdel
 set lines=38 columns=174
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit src/main/resources/templates/index.html
+edit src/main/resources/templates/confirm.html
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -61,17 +64,17 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 7 - ((6 * winheight(0) + 17) / 35)
+let s:l = 39 - ((16 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 7
-normal! 0
+keepjumps 39
+normal! 017|
 wincmd w
 argglobal
-if bufexists(fnamemodify("src/main/resources/application.properties", ":p")) | buffer src/main/resources/application.properties | else | edit src/main/resources/application.properties | endif
+if bufexists(fnamemodify("src/main/java/com/example/myapp/controller/HomeController.java", ":p")) | buffer src/main/java/com/example/myapp/controller/HomeController.java | else | edit src/main/java/com/example/myapp/controller/HomeController.java | endif
 if &buftype ==# 'terminal'
-  silent file src/main/resources/application.properties
+  silent file src/main/java/com/example/myapp/controller/HomeController.java
 endif
 setlocal fdm=manual
 setlocal fde=0
@@ -88,9 +91,8 @@ if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
-normal! 031|
+normal! 0
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 86 + 87) / 174)
 exe 'vert 2resize ' . ((&columns * 87 + 87) / 174)
 tabnext
@@ -107,12 +109,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 121 - ((34 * winheight(0) + 17) / 35)
+let s:l = 124 - ((33 * winheight(0) + 17) / 35)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 121
-normal! 011|
+keepjumps 124
+normal! 039|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
